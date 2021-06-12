@@ -16,6 +16,20 @@
                 <x-vote-result-chart :stats="$votingList->stats"/>
             </x-stack>
             <x-list>
+                @foreach ($countries as $country => $stats)
+                    <x-list-item
+                        :title="\App\Enums\CountryEnum::make($country)->label"
+                        :subtitle="__('voting-lists.groups.count', [
+                            'voted' => $stats['voted'],
+                            'total' => $stats['active'],
+                        ])"
+                        :stats="$stats"
+                        avatarStyle="squared"
+                        avatarUrl="/assets/countries/{{ Str::lower($country) }}.svg"
+                    />
+                @endforeach
+            </x-list>
+            <x-list>
                 @foreach ($groups as $group)
                     <x-list-item
                         :title="$group->name"

@@ -125,3 +125,38 @@ it('shows a list of groups sorted descending by number of active members', funct
         'Greens/European Free Alliance',
     ]);
 });
+
+it('shows all countries of which MEPs participated sorted descending by number of active members', function () {
+    $this->votingList->stats = array_merge($this->votingList->stats, [
+        'by_country' => [
+            'DE' => [
+                'active' => 100,
+                'voted' => 25,
+                'by_position' => [
+                    'FOR' => 25,
+                    'AGAINST' => 0,
+                    'ABSTENTION' => 0,
+                    'ABSENT' => 0,
+                ],
+            ],
+            'NL' => [
+                'active' => 200,
+                'voted' => 50,
+                'by_position' => [
+                    'FOR' => 50,
+                    'AGAINST' => 0,
+                    'ABSTENTION' => 0,
+                    'ABSENT' => 0,
+                ],
+            ],
+        ],
+    ]);
+
+    $this->votingList->save();
+    $response = $this->get('/votes/1');
+
+    expect($response)->toSeeInOrder([
+        'Netherlands',
+        'Germany',
+    ]);
+});

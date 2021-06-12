@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\CountryEnum;
 use App\Group;
 use App\VotingList;
 use Spatie\SimpleExcel\SimpleExcelWriter;
@@ -26,10 +27,25 @@ class VotingListsController extends Controller
                 return $group->stats['active'];
             });
 
+        $countries = collect(CountryEnum::toValues())
+            ->map(function ($country) use ($stats) {
+                $countryStats = $stats['by_country'][$country] ?? null;
+
+                return [$country, $countryStats];
+            })
+            ->toAssoc()
+            ->filter(function ($countryStats) {
+                return $countryStats && $countryStats['active'] > 0;
+            })
+            ->sortByDesc(function ($countryStats) {
+                return $countryStats['active'];
+            });
+
         return view('voting-lists.show', [
             'votingList' => $votingList,
             'members' => $this->members($votingList),
             'groups' => $groups,
+            'countries' => $countries,
         ]);
     }
 
