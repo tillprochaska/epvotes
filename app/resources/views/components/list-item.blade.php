@@ -8,7 +8,9 @@
 ])
 
 <li {{ $attributes->bem('list-item') }}>
+    @if ($avatarUrl)
     <x-avatar :url="$avatarUrl" class="list-item__avatar" :style="$avatarStyle" />
+    @endif
 
     <div class="list-item__text">
         <strong>{{ $title }}</strong>

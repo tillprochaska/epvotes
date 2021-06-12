@@ -24,8 +24,6 @@
                             'total' => $stats['active'],
                         ])"
                         :stats="$stats"
-                        avatarStyle="squared"
-                        avatarUrl="/assets/countries/{{ Str::lower($country) }}.svg"
                     />
                 @endforeach
             </x-list>
