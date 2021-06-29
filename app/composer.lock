@@ -4195,16 +4195,16 @@
         },
         {
             "name": "spatie/url",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/url.git",
-                "reference": "8d996c2e69a02683908d12b439b96c60268ed085"
+                "reference": "9dab5acd9480e2b7f7ea115a8895e4eca4256f67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/url/zipball/8d996c2e69a02683908d12b439b96c60268ed085",
-                "reference": "8d996c2e69a02683908d12b439b96c60268ed085",
+                "url": "https://api.github.com/repos/spatie/url/zipball/9dab5acd9480e2b7f7ea115a8895e4eca4256f67",
+                "reference": "9dab5acd9480e2b7f7ea115a8895e4eca4256f67",
                 "shasum": ""
             },
             "require": {
@@ -4241,7 +4241,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/url/issues",
-                "source": "https://github.com/spatie/url/tree/2.0.0"
+                "source": "https://github.com/spatie/url/tree/2.0.1"
             },
             "funding": [
                 {
@@ -4253,7 +4253,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-03-31T10:15:44+00:00"
+            "time": "2021-06-25T09:21:50+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
