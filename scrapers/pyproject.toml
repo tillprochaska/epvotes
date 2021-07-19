@@ -6,7 +6,7 @@ authors = ["Till Prochaska <mail@tillprochaska.de>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-requests = "^2.25.1"
+requests = "^2.26.0"
 unidecode = "^1.2.0"
 flake8-black = "^0.2.1"
 beautifulsoup4 = "^4.9.3"
